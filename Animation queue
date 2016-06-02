@@ -1,0 +1,14 @@
+$(document).ready(function(){
+  var q = $({});
+  
+  function animToQueue(theQueue, selector, animationprops,speed) {
+    theQueue.queue(function(next) {
+        $(selector).animate(animationprops,speed, next);
+    });
+ }
+  
+  animToQueue(q, '.left_block',{opacity:1},500);
+  animToQueue(q, '.right_block',{opacity:1},500);
+  animToQueue(q, '.text', {opacity:1},500);
+  animToQueue(q, '.message', {width:'+=68%'},500);
+});
