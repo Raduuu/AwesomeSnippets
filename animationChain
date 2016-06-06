@@ -1,0 +1,7 @@
+var chain = function(toAnimate, ix){
+	if(toAnimate[ix]){
+	    $(toAnimate[ix]).fadeIn('normal', function(){ chain(toAnimate, ix + 1 )});
+	}
+};
+
+chain($('.chatroom'), 0);
