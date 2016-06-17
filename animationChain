@@ -1,7 +1,9 @@
-var chain = function(toAnimate, ix){
-	if(toAnimate[ix]){
-	    $(toAnimate[ix]).fadeIn('normal', function(){ chain(toAnimate, ix + 1 )});
-	}
+var chain = function (toAnimate, ix, timing) {
+    if (toAnimate[ix]) {
+        $(toAnimate[ix]).animate({
+            opacity: 1
+        }, timing, function() {
+            chain(toAnimate, ix + 1, timing)
+        });
+    }
 };
-
-chain($('.chatroom'), 0);
