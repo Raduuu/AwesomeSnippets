@@ -1,0 +1,11 @@
+
+$('.buttons').on('click', function() {
+	$('.register-wrapper').fadeIn(300);
+});
+
+$(document).on('click', function(event) {
+	if ( !$(event.target).closest('.register-modal').length && !$(event.target).closest('.buttons').length ) {
+    // Hide the menus.
+		$('.register-wrapper').fadeOut(300);
+  }
+});
