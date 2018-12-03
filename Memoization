@@ -8,3 +8,18 @@ Array.prototype.slice.call(arguments)
         return fn.cache[args] ? fn.cache[args] : (fn.cache[args] = fn.apply(this,args))
     }
 }
+
+We can add the memoize function to the Function prototype so that every function defined in our apps 
+inherits the memoize function and can call it.
+
+Function.prototype.memoize = function() {
+    var self = this
+    return function () {
+        var args =
+Array.prototype.slice.call(arguments)
+        self.cache = self.cache || {};
+        return self.cache[args] ? self.cache[args] : (self.cache[args] = self(args))
+    }
+}
+We know that all functions defined in JS are inherited from the Function.prototype. 
+So, anything thing added to the Function.prototype will be available to all the functions we define.
