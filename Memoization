@@ -1,0 +1,10 @@
+Now, we could create a standalone function that will memoize any function. We will call this function memoize.
+
+function memoize(fn) {
+    return function () {
+        var args =
+Array.prototype.slice.call(arguments)
+        fn.cache = fn.cache || {};
+        return fn.cache[args] ? fn.cache[args] : (fn.cache[args] = fn.apply(this,args))
+    }
+}
