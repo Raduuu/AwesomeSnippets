@@ -1,0 +1,13 @@
+ let deepCopy = (obj) => {
+   let newObj = {}
+   if(typeof(obj) === "object") {
+     for(let prop in obj) {
+       if(typeof(obj[prop]) === "object") {
+         newObj[prop] = deepCopy(obj[prop])
+       } else {
+         newObj[prop] = obj[prop]
+       }
+     }
+   }
+   return newObj;
+}
